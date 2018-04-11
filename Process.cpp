@@ -3,11 +3,12 @@
 //
 
 #include "Process.h"
-
+int Process::id = 1;
 Process::Process(int executionTime, int arrivalTime):executionTime(executionTime),arrivalTime(arrivalTime) {
     this->responseTime = 0;
     this->returnTime = 0;
     this->waitTime = 0;
+    this->processId = id++;
 }
 
 int Process::getExecutionTime() {return this->executionTime; }
@@ -20,6 +21,5 @@ void Process::setResponseTime(int respTime) {this->responseTime = respTime;}
 void Process::setWaitTime(int waitTime) {this->waitTime = waitTime;}
 void Process::setReturnTime(int retTime) {this->returnTime = retTime;}
 
-bool Process::operator<(Process & processB) {
-    return this->getArrivalTime() < processB.getArrivalTime() ;
-}
+int Process::getId() {return this->processId;}
+

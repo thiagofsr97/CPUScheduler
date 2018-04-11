@@ -12,14 +12,14 @@
 
 #define QUANTUM 2
 typedef enum {FCFS, SJF,RR} scheduleAlgorithm;
+enum SortBy{ARRIVAL, BURST};
 
 class Scheduler {
 private:
     std::vector<Process> processList;
     double waitAverage, responseAverage, returnAverage;
     void calculateAverage();
-    void sortByArrival();
-    void sortByExecutionTime();
+    void sort(SortBy);
     void fcfs();
     void sjf();
     void rr();

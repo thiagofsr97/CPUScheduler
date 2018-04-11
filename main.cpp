@@ -10,8 +10,17 @@ int main(int argc,char**argv) {
     FileUtils fileUtils("in.txt","out.txt");
     std::vector<Process> processList = fileUtils.getProcess();
     Scheduler scheduler(processList);
-    scheduler.schedule(FCFS);
-    fileUtils.appendToLog(FCFS,scheduler.getAverageArray());
+    scheduler.schedule(SJF);
+    fileUtils.appendToLog(SJF,scheduler.getAverageArray());
+
+    processList = scheduler.getProcesslist();
+
+    for(Process i:processList){
+        std::cout <<"P" << i.getId() << " Wait: "<< i.getWaitTime() <<
+                  " Return: " << i.getReturnTime() <<
+                  " Response: " << i.getResponseTime() << " Burst:" <<
+                  i.getExecutionTime() << " Arrival:" << i.getArrivalTime() << std::endl;
+    }
 
     return 0;
 }

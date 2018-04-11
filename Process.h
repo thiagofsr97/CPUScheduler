@@ -13,10 +13,13 @@ private:
     int waitTime;
     int returnTime;
     int responseTime;
+    static int id;
+    int processId;
+
 
 public:
     Process(int,int);
-    bool operator <(Process&);
+    int getId();
     int getExecutionTime();
     void setExecutionTime(int);
     int getWaitTime();

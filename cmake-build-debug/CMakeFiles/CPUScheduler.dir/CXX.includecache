@@ -33,6 +33,8 @@ Process.h
 /home/thiagofsr/CLionProjects/CPUScheduler/Scheduler.cpp
 algorithm
 -
+iostream
+-
 Scheduler.h
 /home/thiagofsr/CLionProjects/CPUScheduler/Scheduler.h
 

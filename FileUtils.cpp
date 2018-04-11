@@ -27,9 +27,9 @@ std::vector<Process> FileUtils::getProcess() {
             aux = strdup(line.c_str());
             char *tokenized = strtok(aux, " ");
 
-            executionTime = std::stoi(tokenized, NULL, 10);
+            arrivalTime = std::stoi(tokenized, NULL, 10);
             tokenized = strtok(NULL," ");
-            arrivalTime = std::stoi(tokenized);
+            executionTime = std::stoi(tokenized);
             processList.push_back(Process(executionTime, arrivalTime));
         }
 
