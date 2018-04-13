@@ -9,6 +9,7 @@ Process::Process(int burstTime, int arrivalTime):burstTime(burstTime),arrivalTim
     this->returnTime = 0;
     this->waitTime = 0;
     this->processId = id++;
+    this->firstResponse = true;
 }
 
 int Process::getBurstTime() {return this->burstTime; }
@@ -40,7 +41,16 @@ void Process::incrementReturnTime() {
 }
 
 void Process::incrementResponseTime() {
-    this->responseTime++;
+            this->responseTime++;
 
+}
+
+void Process::hasLeftOnce() {
+    this->firstResponse = false;
+
+}
+
+bool Process::isFirstResponse() {
+    return this->firstResponse;
 }
 

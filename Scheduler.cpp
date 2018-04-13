@@ -20,10 +20,10 @@ bool sortByBurstTime(Process& a,Process& b){
 void Scheduler::sort(SortBy sortBy) {
     switch(sortBy){
         case ARRIVAL:
-            std::sort(processList.begin(),processList.end(),sortByArrival);
+            std::sort(idleQueue.begin(),idleQueue.end(),sortByArrival);
             break;
         case BURST:
-            std::sort(processList.begin(),processList.end(),sortByBurstTime);
+            std::sort(idleQueue.begin(),idleQueue.end(),sortByBurstTime);
             break;
 
     }
@@ -31,31 +31,34 @@ void Scheduler::sort(SortBy sortBy) {
 void Scheduler::calculateAverage() {
     int fullResponseTime, fullWaitTime, fullReturnTime;
     fullResponseTime = fullWaitTime = fullReturnTime = 0;
-    for(Process i:executionQueue){
+    for(Process i:executedQueue){
         fullResponseTime+= i.getResponseTime();
         fullReturnTime += i.getReturnTime();
         fullWaitTime += i.getWaitTime();
     }
-    this->responseAverage = double(fullResponseTime)/executionQueue.size();
-    this->returnAverage = double(fullReturnTime)/executionQueue.size();
-    this->waitAverage = double(fullWaitTime)/executionQueue.size();
+    this->responseAverage = double(fullResponseTime)/executedQueue.size();
+    this->returnAverage = double(fullReturnTime)/executedQueue.size();
+    this->waitAverage = double(fullWaitTime)/executedQueue.size();
 
 }
 
-Scheduler::Scheduler(std::vector<Process> processList):processList(processList) {}
+Scheduler::Scheduler(FileUtil* file):file(file) {
+
+    currentTime = 0;
+}
 
 std::vector<Process> Scheduler::getProcesslist() {
-    return executionQueue;
+    return executedQueue;
 
 }
 
-void Scheduler::setProcessList(std::vector<Process> processList) {
-    this->processList = processList;
+void Scheduler::setIdleQueue(std::vector<Process> idleQueue) {
+    this->idleQueue = idleQueue;
 
 }
 
 void Scheduler::addProcess(Process process) {
-    processList.push_back(process);
+    idleQueue.push_back(process);
 
 
 }
@@ -69,31 +72,35 @@ double Scheduler::getReturnAverage() {return this->returnAverage;}
 
 void Scheduler::fcfs() {
     currentTime =0;
-    std::sort(processList.begin(),processList.end(),sortByArrival);
-    int n_process = processList.size();
+    if(idleQueue.empty()) {
+        idleQueue = this->file->getProcess();
+        if(idleQueue.empty()){
+            std::cout << "There's no processes to schedule" << std::endl;
+        }
+    }
+    std::sort(idleQueue.begin(),idleQueue.end(),sortByArrival);
+    int n_process = idleQueue.size();
 
 
-    while(executionQueue.size() <= n_process){
+    while(executedQueue.size() < n_process){
 
 
-        while(!processList.empty() && processList.front().getArrivalTime() <= currentTime){
-            readyQueue.push_back(processList.front());
-            processList.erase(processList.begin());
+        while(!idleQueue.empty() && idleQueue.front().getArrivalTime() <= currentTime){
+            readyExecQueue.push_back(idleQueue.front());
+            idleQueue.erase(idleQueue.begin());
         }
 
-        if ((readyQueue.front().getBurstTime() == 0)) {
-            executionQueue.push_back(readyQueue.front());
-            readyQueue.erase(readyQueue.begin());
-            if(readyQueue.size() == 0 && processList.size() == 0)
-                break;
+        if ((readyExecQueue.front().getBurstTime() == 0)) {
+            executedQueue.push_back(readyExecQueue.front());
+            readyExecQueue.erase(readyExecQueue.begin());
 
         } else {
-            readyQueue.front().decrementBurstTime();
-            readyQueue.front().incrementReturnTime();
-            for (int i = 1; i < readyQueue.size(); i++) {
-                readyQueue.at(i).incrementWaitTime();
-                readyQueue.at(i).incrementResponseTime();
-                readyQueue.at(i).incrementReturnTime();
+            readyExecQueue.front().decrementBurstTime();
+            readyExecQueue.front().incrementReturnTime();
+            for (int i = 1; i < readyExecQueue.size(); i++) {
+                readyExecQueue.at(i).incrementWaitTime();
+                readyExecQueue.at(i).incrementResponseTime();
+                readyExecQueue.at(i).incrementReturnTime();
             }
         }
 
@@ -109,33 +116,36 @@ void Scheduler::fcfs() {
 
 void Scheduler::sjf() {
     currentTime =0;
-    std::sort(processList.begin(),processList.end(),sortByArrival);
-    int n_process = processList.size();
-
-
-    while(executionQueue.size() <= n_process){
-
-
-        while(!processList.empty() && processList.front().getArrivalTime() <= currentTime){
-            readyQueue.push_back(processList.front());
-            processList.erase(processList.begin());
+    if(idleQueue.empty()) {
+        idleQueue = this->file->getProcess();
+        if(idleQueue.empty()){
+            std::cout << "There's no processes to schedule" << std::endl;
         }
-        if(!readyQueue.empty())
-            std::sort(readyQueue.begin(),readyQueue.end(),sortByBurstTime);
+    }
+    std::sort(idleQueue.begin(),idleQueue.end(),sortByArrival);
+    int n_process = idleQueue.size();
 
-            if ((readyQueue.front().getBurstTime() == 0)) {
-                executionQueue.push_back(readyQueue.front());
-                readyQueue.erase(readyQueue.begin());
-                if(readyQueue.size() == 0 && processList.size() == 0)
-                    break;
 
+    while(executedQueue.size() < n_process){
+
+
+        while(!idleQueue.empty() && idleQueue.front().getArrivalTime() <= currentTime){
+            readyExecQueue.push_back(idleQueue.front());
+            idleQueue.erase(idleQueue.begin());
+        }
+        if(!readyExecQueue.empty())
+            std::sort(readyExecQueue.begin(),readyExecQueue.end(),sortByBurstTime);
+
+            if ((readyExecQueue.front().getBurstTime() == 0)) {
+                executedQueue.push_back(readyExecQueue.front());
+                readyExecQueue.erase(readyExecQueue.begin());
             } else {
-                readyQueue.front().decrementBurstTime();
-                readyQueue.front().incrementReturnTime();
-                for (int i = 1; i < readyQueue.size(); i++) {
-                    readyQueue.at(i).incrementWaitTime();
-                    readyQueue.at(i).incrementResponseTime();
-                    readyQueue.at(i).incrementReturnTime();
+                readyExecQueue.front().decrementBurstTime();
+                readyExecQueue.front().incrementReturnTime();
+                for (int i = 1; i < readyExecQueue.size(); i++) {
+                    readyExecQueue.at(i).incrementWaitTime();
+                    readyExecQueue.at(i).incrementResponseTime();
+                    readyExecQueue.at(i).incrementReturnTime();
                 }
             }
 
@@ -150,6 +160,75 @@ void Scheduler::sjf() {
 
 }
 
+void Scheduler::rr() {
+    currentTime = 0;
+    idleQueue = file->getProcess();
+    std::sort(idleQueue.begin(),idleQueue.end(),sortByArrival);
+
+    int n_process = idleQueue.size();
+    int quantum = 0;
+
+
+    while(executedQueue.size() < n_process){
+
+            while (!idleQueue.empty() && (idleQueue.front().getArrivalTime() <= currentTime) && idleQueue.front().isFirstResponse()) {
+                readyExecQueue.push_back(idleQueue.front());
+                idleQueue.erase(idleQueue.begin());
+            }
+
+
+        if(!idleQueue.empty()){
+
+            if(idleQueue.front().getReturnTime()> 0){
+
+                while(!idleQueue.empty()){
+                    readyExecQueue.push_back(idleQueue.front());
+                    idleQueue.erase(idleQueue.begin());
+                }
+
+            }
+        }
+
+
+
+        if(quantum == QUANTUM ||readyExecQueue.front().getBurstTime() == 0 ) {
+            quantum = 0;
+            if(readyExecQueue.front().getBurstTime() == 0){
+                executedQueue.push_back(readyExecQueue.front());
+                readyExecQueue.erase(readyExecQueue.begin());
+
+
+            }else{
+                readyExecQueue.front().hasLeftOnce();
+                idleQueue.push_back(readyExecQueue.front());
+                readyExecQueue.erase(readyExecQueue.begin());
+
+            }
+        }else{
+            quantum++;
+            readyExecQueue.front().decrementBurstTime();
+            readyExecQueue.front().incrementReturnTime();
+            for(int i = 1; i < readyExecQueue.size();i++){
+                if(readyExecQueue.at(i).isFirstResponse())
+                    readyExecQueue.at(i).incrementResponseTime(); //won't have effect all the time
+                readyExecQueue.at(i).incrementReturnTime();
+                readyExecQueue.at(i).incrementWaitTime();
+            }
+
+        }
+
+
+
+        currentTime++;
+
+
+    }
+
+    calculateAverage();
+
+
+}
+
 void Scheduler::schedule(scheduleAlgorithm algorithm) {
     switch(algorithm){
         case FCFS:
@@ -159,7 +238,7 @@ void Scheduler::schedule(scheduleAlgorithm algorithm) {
              sjf();
             break;
         case RR:
-  //          rr();
+             rr();
             break;
     }
 

@@ -8,18 +8,20 @@
 
 #include <vector>
 #include "Process.h"
+#include "FileUtil.h"
 #include <array>
+#include "Utils.h"
 
 #define QUANTUM 2
-typedef enum {FCFS, SJF,RR} scheduleAlgorithm;
-enum SortBy{ARRIVAL, BURST};
+
 
 class Scheduler {
 private:
-    std::vector<Process> processList;
-    std::vector<Process> readyQueue;
-    std::vector<Process> executionQueue;
+    std::vector<Process> idleQueue;
+    std::vector<Process> readyExecQueue;
+    std::vector<Process> executedQueue;
     int currentTime;
+    FileUtil *file;
     double waitAverage, responseAverage, returnAverage;
     void calculateAverage();
     void sort(SortBy);
@@ -28,8 +30,8 @@ private:
     void rr();
 
 public:
-    Scheduler(std::vector<Process> processList);
-    void setProcessList(std::vector<Process>);
+    Scheduler(FileUtil*);
+    void setIdleQueue(std::vector<Process>);
     std::vector<Process> getProcesslist();
     void addProcess(Process);
     double getWaitAverage();

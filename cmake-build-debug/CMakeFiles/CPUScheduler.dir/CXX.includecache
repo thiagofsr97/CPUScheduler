@@ -6,21 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/home/thiagofsr/Hacking/CPUScheduler/FileUtils.cpp
-FileUtils.h
-/home/thiagofsr/Hacking/CPUScheduler/FileUtils.h
+/home/thiagofsr/Hacking/CPUScheduler/FileUtil.cpp
+FileUtil.h
+/home/thiagofsr/Hacking/CPUScheduler/FileUtil.h
 iostream
 -
 cstring
 -
 
-/home/thiagofsr/Hacking/CPUScheduler/FileUtils.h
+/home/thiagofsr/Hacking/CPUScheduler/FileUtil.h
 fstream
 -
 vector
 -
-Scheduler.h
-/home/thiagofsr/Hacking/CPUScheduler/Scheduler.h
+Utils.h
+/home/thiagofsr/Hacking/CPUScheduler/Utils.h
+array
+-
 Process.h
 /home/thiagofsr/Hacking/CPUScheduler/Process.h
 
@@ -43,12 +45,20 @@ vector
 -
 Process.h
 /home/thiagofsr/Hacking/CPUScheduler/Process.h
+FileUtil.h
+/home/thiagofsr/Hacking/CPUScheduler/FileUtil.h
 array
 -
+Utils.h
+/home/thiagofsr/Hacking/CPUScheduler/Utils.h
+
+/home/thiagofsr/Hacking/CPUScheduler/Utils.h
 
 /home/thiagofsr/Hacking/CPUScheduler/main.cpp
 iostream
 -
-FileUtils.h
-/home/thiagofsr/Hacking/CPUScheduler/FileUtils.h
+FileUtil.h
+/home/thiagofsr/Hacking/CPUScheduler/FileUtil.h
+Scheduler.h
+/home/thiagofsr/Hacking/CPUScheduler/Scheduler.h
 

@@ -2,22 +2,24 @@
 // Created by thiagofsr on 09/04/18.
 //
 
-#ifndef CPUSCHEDULER_FILEREADER_H
-#define CPUSCHEDULER_FILEREADER_H
+#ifndef CPUSCHEDULER_FILEUTIL_H
+#define CPUSCHEDULER_FILEUTIL_H
 
 
 #include <fstream>
 #include <vector>
-#include "Scheduler.h"
+#include "Utils.h"
+#include <array>
+
 #include "Process.h"
 
-class FileUtils {
+class FileUtil {
 private:
     std::fstream inputFile;
     std::fstream outputFile;
 public:
-    FileUtils(std::string inputPath, std::string outputPath);
-    ~FileUtils();
+    FileUtil(std::string inputPath, std::string outputPath);
+    ~FileUtil();
     std::vector<Process> getProcess();
     void appendToLog(scheduleAlgorithm,std::array<double,3>);
 
@@ -25,4 +27,4 @@ public:
 };
 
 
-#endif //CPUSCHEDULER_FILEREADER_H
+#endif //CPUSCHEDULER_FILEUTIL_H

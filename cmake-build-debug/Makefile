@@ -123,32 +123,32 @@ CPUScheduler/fast:
 	$(MAKE) -f CMakeFiles/CPUScheduler.dir/build.make CMakeFiles/CPUScheduler.dir/build
 .PHONY : CPUScheduler/fast
 
-FileUtils.o: FileUtils.cpp.o
+FileUtil.o: FileUtil.cpp.o
 
-.PHONY : FileUtils.o
+.PHONY : FileUtil.o
 
 # target to build an object file
-FileUtils.cpp.o:
-	$(MAKE) -f CMakeFiles/CPUScheduler.dir/build.make CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o
-.PHONY : FileUtils.cpp.o
+FileUtil.cpp.o:
+	$(MAKE) -f CMakeFiles/CPUScheduler.dir/build.make CMakeFiles/CPUScheduler.dir/FileUtil.cpp.o
+.PHONY : FileUtil.cpp.o
 
-FileUtils.i: FileUtils.cpp.i
+FileUtil.i: FileUtil.cpp.i
 
-.PHONY : FileUtils.i
+.PHONY : FileUtil.i
 
 # target to preprocess a source file
-FileUtils.cpp.i:
-	$(MAKE) -f CMakeFiles/CPUScheduler.dir/build.make CMakeFiles/CPUScheduler.dir/FileUtils.cpp.i
-.PHONY : FileUtils.cpp.i
+FileUtil.cpp.i:
+	$(MAKE) -f CMakeFiles/CPUScheduler.dir/build.make CMakeFiles/CPUScheduler.dir/FileUtil.cpp.i
+.PHONY : FileUtil.cpp.i
 
-FileUtils.s: FileUtils.cpp.s
+FileUtil.s: FileUtil.cpp.s
 
-.PHONY : FileUtils.s
+.PHONY : FileUtil.s
 
 # target to generate assembly for a file
-FileUtils.cpp.s:
-	$(MAKE) -f CMakeFiles/CPUScheduler.dir/build.make CMakeFiles/CPUScheduler.dir/FileUtils.cpp.s
-.PHONY : FileUtils.cpp.s
+FileUtil.cpp.s:
+	$(MAKE) -f CMakeFiles/CPUScheduler.dir/build.make CMakeFiles/CPUScheduler.dir/FileUtil.cpp.s
+.PHONY : FileUtil.cpp.s
 
 Process.o: Process.cpp.o
 
@@ -240,9 +240,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... CPUScheduler"
-	@echo "... FileUtils.o"
-	@echo "... FileUtils.i"
-	@echo "... FileUtils.s"
+	@echo "... FileUtil.o"
+	@echo "... FileUtil.i"
+	@echo "... FileUtil.s"
 	@echo "... Process.o"
 	@echo "... Process.i"
 	@echo "... Process.s"

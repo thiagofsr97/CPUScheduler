@@ -8,6 +8,7 @@
 
 class Process {
 private:
+    bool firstResponse;
     int burstTime;
     int arrivalTime;
     int waitTime;
@@ -31,9 +32,11 @@ public:
     void incrementReturnTime();
 
     int getArrivalTime();
+    bool isFirstResponse();
     int getResponseTime();
     void setResponseTime(int);
     void incrementResponseTime();
+    void hasLeftOnce();
 
 
 };

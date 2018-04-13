@@ -2,14 +2,14 @@
 // Created by thiagofsr on 09/04/18.
 //
 
-#include "FileUtils.h"
+#include "FileUtil.h"
 #include <iostream>
 #include <cstring>
 
 
 #define ErrorOpenFile(filePath) std::cout << "Error opening file in the path: " << filePath << std::endl; exit(1);
 
-FileUtils::FileUtils(std::string inputPath, std::string outputPath) {
+FileUtil::FileUtil(std::string inputPath, std::string outputPath) {
     inputFile.open(inputPath,std::ios::in);
     outputFile.open(outputPath,std::ios::out);
     if(!inputFile.is_open()){ErrorOpenFile(inputPath);}
@@ -17,7 +17,7 @@ FileUtils::FileUtils(std::string inputPath, std::string outputPath) {
 
 }
 
-std::vector<Process> FileUtils::getProcess() {
+std::vector<Process> FileUtil::getProcess() {
     std::vector<Process> processList;
     std::string line; char* aux;
     int executionTime, arrivalTime;
@@ -39,13 +39,13 @@ std::vector<Process> FileUtils::getProcess() {
 
 }
 
-FileUtils::~FileUtils() {
+FileUtil::~FileUtil() {
     inputFile.close();
     outputFile.close();
 
 }
 
-void FileUtils::appendToLog(scheduleAlgorithm algorithm, std::array<double,3> arr) {
+void FileUtil::appendToLog(scheduleAlgorithm algorithm, std::array<double,3> arr) {
     std::string algorithmName;
     switch(algorithm){
         case FCFS:

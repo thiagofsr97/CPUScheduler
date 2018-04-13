@@ -129,28 +129,28 @@ CMakeFiles/CPUScheduler.dir/Scheduler.cpp.o.provides: CMakeFiles/CPUScheduler.di
 CMakeFiles/CPUScheduler.dir/Scheduler.cpp.o.provides.build: CMakeFiles/CPUScheduler.dir/Scheduler.cpp.o
 
 
-CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o: CMakeFiles/CPUScheduler.dir/flags.make
-CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o: ../FileUtils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thiagofsr/Hacking/CPUScheduler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o -c /home/thiagofsr/Hacking/CPUScheduler/FileUtils.cpp
+CMakeFiles/CPUScheduler.dir/FileUtil.cpp.o: CMakeFiles/CPUScheduler.dir/flags.make
+CMakeFiles/CPUScheduler.dir/FileUtil.cpp.o: ../FileUtil.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thiagofsr/Hacking/CPUScheduler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CPUScheduler.dir/FileUtil.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CPUScheduler.dir/FileUtil.cpp.o -c /home/thiagofsr/Hacking/CPUScheduler/FileUtil.cpp
 
-CMakeFiles/CPUScheduler.dir/FileUtils.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CPUScheduler.dir/FileUtils.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/thiagofsr/Hacking/CPUScheduler/FileUtils.cpp > CMakeFiles/CPUScheduler.dir/FileUtils.cpp.i
+CMakeFiles/CPUScheduler.dir/FileUtil.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CPUScheduler.dir/FileUtil.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/thiagofsr/Hacking/CPUScheduler/FileUtil.cpp > CMakeFiles/CPUScheduler.dir/FileUtil.cpp.i
 
-CMakeFiles/CPUScheduler.dir/FileUtils.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CPUScheduler.dir/FileUtils.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/thiagofsr/Hacking/CPUScheduler/FileUtils.cpp -o CMakeFiles/CPUScheduler.dir/FileUtils.cpp.s
+CMakeFiles/CPUScheduler.dir/FileUtil.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CPUScheduler.dir/FileUtil.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/thiagofsr/Hacking/CPUScheduler/FileUtil.cpp -o CMakeFiles/CPUScheduler.dir/FileUtil.cpp.s
 
-CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o.requires:
+CMakeFiles/CPUScheduler.dir/FileUtil.cpp.o.requires:
 
-.PHONY : CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o.requires
+.PHONY : CMakeFiles/CPUScheduler.dir/FileUtil.cpp.o.requires
 
-CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o.provides: CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o.requires
-	$(MAKE) -f CMakeFiles/CPUScheduler.dir/build.make CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o.provides.build
-.PHONY : CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o.provides
+CMakeFiles/CPUScheduler.dir/FileUtil.cpp.o.provides: CMakeFiles/CPUScheduler.dir/FileUtil.cpp.o.requires
+	$(MAKE) -f CMakeFiles/CPUScheduler.dir/build.make CMakeFiles/CPUScheduler.dir/FileUtil.cpp.o.provides.build
+.PHONY : CMakeFiles/CPUScheduler.dir/FileUtil.cpp.o.provides
 
-CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o.provides.build: CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o
+CMakeFiles/CPUScheduler.dir/FileUtil.cpp.o.provides.build: CMakeFiles/CPUScheduler.dir/FileUtil.cpp.o
 
 
 # Object files for target CPUScheduler
@@ -158,7 +158,7 @@ CPUScheduler_OBJECTS = \
 "CMakeFiles/CPUScheduler.dir/main.cpp.o" \
 "CMakeFiles/CPUScheduler.dir/Process.cpp.o" \
 "CMakeFiles/CPUScheduler.dir/Scheduler.cpp.o" \
-"CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o"
+"CMakeFiles/CPUScheduler.dir/FileUtil.cpp.o"
 
 # External object files for target CPUScheduler
 CPUScheduler_EXTERNAL_OBJECTS =
@@ -166,7 +166,7 @@ CPUScheduler_EXTERNAL_OBJECTS =
 CPUScheduler: CMakeFiles/CPUScheduler.dir/main.cpp.o
 CPUScheduler: CMakeFiles/CPUScheduler.dir/Process.cpp.o
 CPUScheduler: CMakeFiles/CPUScheduler.dir/Scheduler.cpp.o
-CPUScheduler: CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o
+CPUScheduler: CMakeFiles/CPUScheduler.dir/FileUtil.cpp.o
 CPUScheduler: CMakeFiles/CPUScheduler.dir/build.make
 CPUScheduler: CMakeFiles/CPUScheduler.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/thiagofsr/Hacking/CPUScheduler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable CPUScheduler"
@@ -180,7 +180,7 @@ CMakeFiles/CPUScheduler.dir/build: CPUScheduler
 CMakeFiles/CPUScheduler.dir/requires: CMakeFiles/CPUScheduler.dir/main.cpp.o.requires
 CMakeFiles/CPUScheduler.dir/requires: CMakeFiles/CPUScheduler.dir/Process.cpp.o.requires
 CMakeFiles/CPUScheduler.dir/requires: CMakeFiles/CPUScheduler.dir/Scheduler.cpp.o.requires
-CMakeFiles/CPUScheduler.dir/requires: CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o.requires
+CMakeFiles/CPUScheduler.dir/requires: CMakeFiles/CPUScheduler.dir/FileUtil.cpp.o.requires
 
 .PHONY : CMakeFiles/CPUScheduler.dir/requires
 
