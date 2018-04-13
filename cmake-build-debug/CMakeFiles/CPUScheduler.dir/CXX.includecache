@@ -6,49 +6,49 @@
 
 #IncludeRegexTransform: 
 
-/home/thiagofsr/CLionProjects/CPUScheduler/FileUtils.cpp
+/home/thiagofsr/Hacking/CPUScheduler/FileUtils.cpp
 FileUtils.h
-/home/thiagofsr/CLionProjects/CPUScheduler/FileUtils.h
+/home/thiagofsr/Hacking/CPUScheduler/FileUtils.h
 iostream
 -
 cstring
 -
 
-/home/thiagofsr/CLionProjects/CPUScheduler/FileUtils.h
+/home/thiagofsr/Hacking/CPUScheduler/FileUtils.h
 fstream
 -
 vector
 -
 Scheduler.h
-/home/thiagofsr/CLionProjects/CPUScheduler/Scheduler.h
+/home/thiagofsr/Hacking/CPUScheduler/Scheduler.h
 Process.h
-/home/thiagofsr/CLionProjects/CPUScheduler/Process.h
+/home/thiagofsr/Hacking/CPUScheduler/Process.h
 
-/home/thiagofsr/CLionProjects/CPUScheduler/Process.cpp
+/home/thiagofsr/Hacking/CPUScheduler/Process.cpp
 Process.h
-/home/thiagofsr/CLionProjects/CPUScheduler/Process.h
+/home/thiagofsr/Hacking/CPUScheduler/Process.h
 
-/home/thiagofsr/CLionProjects/CPUScheduler/Process.h
+/home/thiagofsr/Hacking/CPUScheduler/Process.h
 
-/home/thiagofsr/CLionProjects/CPUScheduler/Scheduler.cpp
+/home/thiagofsr/Hacking/CPUScheduler/Scheduler.cpp
 algorithm
 -
 iostream
 -
 Scheduler.h
-/home/thiagofsr/CLionProjects/CPUScheduler/Scheduler.h
+/home/thiagofsr/Hacking/CPUScheduler/Scheduler.h
 
-/home/thiagofsr/CLionProjects/CPUScheduler/Scheduler.h
+/home/thiagofsr/Hacking/CPUScheduler/Scheduler.h
 vector
 -
 Process.h
-/home/thiagofsr/CLionProjects/CPUScheduler/Process.h
+/home/thiagofsr/Hacking/CPUScheduler/Process.h
 array
 -
 
-/home/thiagofsr/CLionProjects/CPUScheduler/main.cpp
+/home/thiagofsr/Hacking/CPUScheduler/main.cpp
 iostream
 -
 FileUtils.h
-/home/thiagofsr/CLionProjects/CPUScheduler/FileUtils.h
+/home/thiagofsr/Hacking/CPUScheduler/FileUtils.h
 

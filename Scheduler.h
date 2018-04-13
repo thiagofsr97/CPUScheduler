@@ -17,6 +17,9 @@ enum SortBy{ARRIVAL, BURST};
 class Scheduler {
 private:
     std::vector<Process> processList;
+    std::vector<Process> readyQueue;
+    std::vector<Process> executionQueue;
+    int currentTime;
     double waitAverage, responseAverage, returnAverage;
     void calculateAverage();
     void sort(SortBy);

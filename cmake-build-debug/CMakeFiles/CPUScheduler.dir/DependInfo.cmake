@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/thiagofsr/CLionProjects/CPUScheduler/FileUtils.cpp" "/home/thiagofsr/CLionProjects/CPUScheduler/cmake-build-debug/CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o"
-  "/home/thiagofsr/CLionProjects/CPUScheduler/Process.cpp" "/home/thiagofsr/CLionProjects/CPUScheduler/cmake-build-debug/CMakeFiles/CPUScheduler.dir/Process.cpp.o"
-  "/home/thiagofsr/CLionProjects/CPUScheduler/Scheduler.cpp" "/home/thiagofsr/CLionProjects/CPUScheduler/cmake-build-debug/CMakeFiles/CPUScheduler.dir/Scheduler.cpp.o"
-  "/home/thiagofsr/CLionProjects/CPUScheduler/main.cpp" "/home/thiagofsr/CLionProjects/CPUScheduler/cmake-build-debug/CMakeFiles/CPUScheduler.dir/main.cpp.o"
+  "/home/thiagofsr/Hacking/CPUScheduler/FileUtils.cpp" "/home/thiagofsr/Hacking/CPUScheduler/cmake-build-debug/CMakeFiles/CPUScheduler.dir/FileUtils.cpp.o"
+  "/home/thiagofsr/Hacking/CPUScheduler/Process.cpp" "/home/thiagofsr/Hacking/CPUScheduler/cmake-build-debug/CMakeFiles/CPUScheduler.dir/Process.cpp.o"
+  "/home/thiagofsr/Hacking/CPUScheduler/Scheduler.cpp" "/home/thiagofsr/Hacking/CPUScheduler/cmake-build-debug/CMakeFiles/CPUScheduler.dir/Scheduler.cpp.o"
+  "/home/thiagofsr/Hacking/CPUScheduler/main.cpp" "/home/thiagofsr/Hacking/CPUScheduler/cmake-build-debug/CMakeFiles/CPUScheduler.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

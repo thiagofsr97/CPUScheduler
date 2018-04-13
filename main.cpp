@@ -19,7 +19,7 @@ int main(int argc,char**argv) {
         std::cout <<"P" << i.getId() << " Wait: "<< i.getWaitTime() <<
                   " Return: " << i.getReturnTime() <<
                   " Response: " << i.getResponseTime() << " Burst:" <<
-                  i.getExecutionTime() << " Arrival:" << i.getArrivalTime() << std::endl;
+                  i.getBurstTime() << " Arrival:" << i.getArrivalTime() << std::endl;
     }
 
     return 0;

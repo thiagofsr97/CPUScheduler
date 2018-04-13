@@ -12,8 +12,8 @@ bool sortByArrival(Process& a,Process& b){
 
 }
 
-bool sortByBurst(Process& a,Process& b){
-    return a.getExecutionTime() < b.getExecutionTime();
+bool sortByBurstTime(Process& a,Process& b){
+    return a.getBurstTime() < b.getBurstTime();
 
 }
 
@@ -23,7 +23,7 @@ void Scheduler::sort(SortBy sortBy) {
             std::sort(processList.begin(),processList.end(),sortByArrival);
             break;
         case BURST:
-            std::sort(processList.begin(),processList.end(),sortByBurst);
+            std::sort(processList.begin(),processList.end(),sortByBurstTime);
             break;
 
     }
@@ -31,21 +31,21 @@ void Scheduler::sort(SortBy sortBy) {
 void Scheduler::calculateAverage() {
     int fullResponseTime, fullWaitTime, fullReturnTime;
     fullResponseTime = fullWaitTime = fullReturnTime = 0;
-    for(Process i:processList){
+    for(Process i:executionQueue){
         fullResponseTime+= i.getResponseTime();
         fullReturnTime += i.getReturnTime();
         fullWaitTime += i.getWaitTime();
     }
-    this->responseAverage = double(fullResponseTime)/processList.size();
-    this->returnAverage = double(fullReturnTime)/processList.size();
-    this->waitAverage = double(fullWaitTime)/processList.size();
+    this->responseAverage = double(fullResponseTime)/executionQueue.size();
+    this->returnAverage = double(fullReturnTime)/executionQueue.size();
+    this->waitAverage = double(fullWaitTime)/executionQueue.size();
 
 }
 
 Scheduler::Scheduler(std::vector<Process> processList):processList(processList) {}
 
 std::vector<Process> Scheduler::getProcesslist() {
-    return processList;
+    return executionQueue;
 
 }
 
@@ -68,50 +68,84 @@ double Scheduler::getResponseAverage() {return this->responseAverage;}
 double Scheduler::getReturnAverage() {return this->returnAverage;}
 
 void Scheduler::fcfs() {
-    sort(ARRIVAL);
+    currentTime =0;
+    std::sort(processList.begin(),processList.end(),sortByArrival);
+    int n_process = processList.size();
 
-    processList.at(0).setReturnTime(processList.at(0).getExecutionTime());
-    processList.at(0).setWaitTime(0);
-    processList.at(0).setResponseTime(0);
-    int waitTime,responseTime,returnTime;
-    waitTime = 0;
-    for(int i = 1; i < processList.size();i++){
-        waitTime += processList.at(i-1).getArrivalTime() + processList.at(i-1).getExecutionTime() -
-                                                          processList.at(i).getArrivalTime();
-        if(waitTime < 0)
-            waitTime = 0;
-        processList.at(i).setWaitTime(waitTime);
-        returnTime = processList.at(i).getWaitTime() + processList.at(i).getExecutionTime();
-        processList.at(i).setReturnTime(returnTime);
-        responseTime = waitTime;
-        processList.at(i).setResponseTime(responseTime);
+
+    while(executionQueue.size() <= n_process){
+
+
+        while(!processList.empty() && processList.front().getArrivalTime() <= currentTime){
+            readyQueue.push_back(processList.front());
+            processList.erase(processList.begin());
+        }
+
+        if ((readyQueue.front().getBurstTime() == 0)) {
+            executionQueue.push_back(readyQueue.front());
+            readyQueue.erase(readyQueue.begin());
+            if(readyQueue.size() == 0 && processList.size() == 0)
+                break;
+
+        } else {
+            readyQueue.front().decrementBurstTime();
+            readyQueue.front().incrementReturnTime();
+            for (int i = 1; i < readyQueue.size(); i++) {
+                readyQueue.at(i).incrementWaitTime();
+                readyQueue.at(i).incrementResponseTime();
+                readyQueue.at(i).incrementReturnTime();
+            }
+        }
+
+
+
+
+        currentTime++;
     }
-
     calculateAverage();
+
+
 }
 
 void Scheduler::sjf() {
-    sort(BURST);
+    currentTime =0;
+    std::sort(processList.begin(),processList.end(),sortByArrival);
+    int n_process = processList.size();
 
-    processList.at(0).setReturnTime(processList.at(0).getExecutionTime());
-    processList.at(0).setWaitTime(0);
-    processList.at(0).setResponseTime(0);
-    int waitTime,responseTime,returnTime;
-    waitTime = 0;
-    for(int i = 1; i < processList.size();i++){
-        waitTime += processList.at(i-1).getArrivalTime() + processList.at(i-1).getExecutionTime() -
-                    processList.at(i).getArrivalTime();
-        if(waitTime < 0)
-            waitTime = 0;
-        processList.at(i).setWaitTime(waitTime);
-        returnTime = processList.at(i).getWaitTime() + processList.at(i).getExecutionTime();
-        processList.at(i).setReturnTime(returnTime);
-        responseTime = waitTime;
-        processList.at(i).setResponseTime(responseTime);
 
+    while(executionQueue.size() <= n_process){
+
+
+        while(!processList.empty() && processList.front().getArrivalTime() <= currentTime){
+            readyQueue.push_back(processList.front());
+            processList.erase(processList.begin());
+        }
+        if(!readyQueue.empty())
+            std::sort(readyQueue.begin(),readyQueue.end(),sortByBurstTime);
+
+            if ((readyQueue.front().getBurstTime() == 0)) {
+                executionQueue.push_back(readyQueue.front());
+                readyQueue.erase(readyQueue.begin());
+                if(readyQueue.size() == 0 && processList.size() == 0)
+                    break;
+
+            } else {
+                readyQueue.front().decrementBurstTime();
+                readyQueue.front().incrementReturnTime();
+                for (int i = 1; i < readyQueue.size(); i++) {
+                    readyQueue.at(i).incrementWaitTime();
+                    readyQueue.at(i).incrementResponseTime();
+                    readyQueue.at(i).incrementReturnTime();
+                }
+            }
+
+
+
+
+        currentTime++;
     }
-
     calculateAverage();
+
 
 
 }

@@ -8,7 +8,7 @@
 
 class Process {
 private:
-    int executionTime;
+    int burstTime;
     int arrivalTime;
     int waitTime;
     int returnTime;
@@ -20,15 +20,20 @@ private:
 public:
     Process(int,int);
     int getId();
-    int getExecutionTime();
-    void setExecutionTime(int);
+    int getBurstTime();
+    void setBurstTime(int);
+    void decrementBurstTime();
     int getWaitTime();
     void setWaitTime(int);
+    void incrementWaitTime();
     int getReturnTime();
     void setReturnTime(int);
+    void incrementReturnTime();
+
     int getArrivalTime();
     int getResponseTime();
     void setResponseTime(int);
+    void incrementResponseTime();
 
 
 };

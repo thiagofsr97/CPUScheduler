@@ -53,6 +53,7 @@ void FileUtils::appendToLog(scheduleAlgorithm algorithm, std::array<double,3> ar
             break;
         case SJF:
             algorithmName = "SJF";
+            break;
         case RR:
             algorithmName = "RR";
             break;
