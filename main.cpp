@@ -9,11 +9,11 @@ int main(int argc,char**argv) {
     std::vector<Process> processList;
     Scheduler scheduler(&fileUtils);
     scheduler.schedule(FCFS);
-    fileUtils.appendToLog(FCFS,scheduler.getAverageArray());
+    fileUtils.appendToLog(FCFS,scheduler.getReturnAverage(),scheduler.getResponseAverage(),scheduler.getWaitAverage());
     scheduler.schedule(SJF);
-    fileUtils.appendToLog(SJF,scheduler.getAverageArray());
+    fileUtils.appendToLog(SJF,scheduler.getReturnAverage(),scheduler.getResponseAverage(),scheduler.getWaitAverage());
     scheduler.schedule(RR);
-    fileUtils.appendToLog(RR,scheduler.getAverageArray());
+    fileUtils.appendToLog(RR,scheduler.getReturnAverage(),scheduler.getResponseAverage(),scheduler.getWaitAverage());
 
     return 0;
 }

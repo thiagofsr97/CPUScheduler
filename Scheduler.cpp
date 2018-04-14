@@ -3,8 +3,7 @@
 //
 
 
-#include <algorithm>
-#include <iostream>
+
 #include "Scheduler.h"
 
 bool sortByArrival(Process& a,Process& b){
@@ -100,18 +99,6 @@ Scheduler::Scheduler(FileUtil* file):file(file) {
 std::vector<Process> Scheduler::getProcesslist() {
     return executedQueue;
 
-}
-
-void Scheduler::sort(SortBy sortBy) {
-    switch(sortBy){
-        case ARRIVAL:
-            std::sort(idleQueue.begin(),idleQueue.end(),sortByArrival);
-            break;
-        case BURST:
-            std::sort(idleQueue.begin(),idleQueue.end(),sortByBurstTime);
-            break;
-
-    }
 }
 
 void Scheduler::calculateAverage() {
@@ -258,10 +245,6 @@ double Scheduler::getWaitAverage() {return this->waitAverage;}
 double Scheduler::getResponseAverage() {return this->responseAverage;}
 
 double Scheduler::getReturnAverage() {return this->returnAverage;}
-
-std::array<double,3> Scheduler::getAverageArray() {
-    return std::array<double,3> {returnAverage,responseAverage,waitAverage};
-}
 
 void Scheduler::ClearAll() {
     this->readyExecQueue.clear();

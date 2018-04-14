@@ -48,7 +48,7 @@ FileUtil::~FileUtil() {
 
 }
 
-void FileUtil::appendToLog(scheduleAlgorithm algorithm, std::array<double,3> arr) {
+void FileUtil::appendToLog(scheduleAlgorithm algorithm, double returnAverage,double responseAverage,double waitAverage ){
     std::string algorithmName;
     switch(algorithm){
         case FCFS:
@@ -62,6 +62,6 @@ void FileUtil::appendToLog(scheduleAlgorithm algorithm, std::array<double,3> arr
             break;
 
     }
-    outputFile << algorithmName << " " <<std::setprecision (4) << arr.at(0) << " " << std::setprecision (4)<< arr.at(1) << " " <<std::setprecision (4) <<arr.at(2) << std::endl;
+    outputFile << algorithmName << " " <<std::setprecision (4) << returnAverage << " " << std::setprecision (4)<< responseAverage << " " <<std::setprecision (4) <<waitAverage << std::endl;
 
 }

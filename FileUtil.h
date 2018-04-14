@@ -9,8 +9,6 @@
 #include <fstream>
 #include <vector>
 #include "Utils.h"
-#include <array>
-
 #include "Process.h"
 
 class FileUtil {
@@ -22,7 +20,7 @@ public:
     FileUtil(std::string inputPath, std::string outputPath);
     ~FileUtil();
     std::vector<Process> getProcess();
-    void appendToLog(scheduleAlgorithm,std::array<double,3>);
+    void appendToLog(scheduleAlgorithm,double,double,double);
 
 
 };

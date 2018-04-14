@@ -9,8 +9,9 @@
 #include <vector>
 #include "Process.h"
 #include "FileUtil.h"
-#include <array>
 #include "Utils.h"
+#include <algorithm>
+#include <iostream>
 
 #define QUANTUM 2
 
@@ -23,7 +24,6 @@ private:
     std::vector<Process> aux;
     FileUtil *file;
     double waitAverage, responseAverage, returnAverage;
-    void sort(SortBy);
     void calculateAverage();
     void fcfs();
     void sjf();
@@ -38,7 +38,7 @@ public:
     double getWaitAverage();
     double getResponseAverage();
     double getReturnAverage();
-    std::array<double, 3> getAverageArray();
+
 };
 
 
