@@ -5,6 +5,7 @@
 #include "FileUtil.h"
 #include <iostream>
 #include <cstring>
+#include <iomanip>
 
 
 #define ErrorOpenFile(filePath) std::cout << "Error opening file in the path: " << filePath << std::endl; exit(1);
@@ -18,21 +19,23 @@ FileUtil::FileUtil(std::string inputPath, std::string outputPath) {
 }
 
 std::vector<Process> FileUtil::getProcess() {
-    std::vector<Process> processList;
     std::string line; char* aux;
     int executionTime, arrivalTime;
-    while(!inputFile.eof()){
-        getline(inputFile,line);
-        if(!line.empty()) {
-            aux = strdup(line.c_str());
-            char *tokenized = strtok(aux, " ");
 
-            arrivalTime = std::stoi(tokenized, NULL, 10);
-            tokenized = strtok(NULL," ");
-            executionTime = std::stoi(tokenized);
-            processList.push_back(Process(executionTime, arrivalTime));
+    if(processList.empty()) {
+        while (!inputFile.eof()) {
+            getline(inputFile, line);
+            if (!line.empty()) {
+                aux = strdup(line.c_str());
+                char *tokenized = strtok(aux, " ");
+
+                arrivalTime = std::stoi(tokenized, NULL, 10);
+                tokenized = strtok(NULL, " ");
+                executionTime = std::stoi(tokenized);
+                processList.push_back(Process(executionTime, arrivalTime));
+            }
+
         }
-
     }
 
     return processList;
@@ -59,6 +62,6 @@ void FileUtil::appendToLog(scheduleAlgorithm algorithm, std::array<double,3> arr
             break;
 
     }
-    outputFile << algorithmName << " " << arr.at(0) << " " << arr.at(1) << " " << arr.at(2) << std::endl;
+    outputFile << algorithmName << " " <<std::setprecision (4) << arr.at(0) << " " << std::setprecision (4)<< arr.at(1) << " " <<std::setprecision (4) <<arr.at(2) << std::endl;
 
 }

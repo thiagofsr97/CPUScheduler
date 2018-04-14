@@ -17,6 +17,7 @@ class FileUtil {
 private:
     std::fstream inputFile;
     std::fstream outputFile;
+    std::vector<Process> processList;
 public:
     FileUtil(std::string inputPath, std::string outputPath);
     ~FileUtil();

@@ -3,7 +3,7 @@
 //
 
 #include "Process.h"
-int Process::id = 1;
+int Process::id = 0;
 Process::Process(int burstTime, int arrivalTime):burstTime(burstTime),arrivalTime(arrivalTime) {
     this->responseTime = 0;
     this->returnTime = 0;

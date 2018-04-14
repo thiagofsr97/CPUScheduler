@@ -20,25 +20,25 @@ private:
     std::vector<Process> idleQueue;
     std::vector<Process> readyExecQueue;
     std::vector<Process> executedQueue;
-    int currentTime;
+    std::vector<Process> aux;
     FileUtil *file;
     double waitAverage, responseAverage, returnAverage;
-    void calculateAverage();
     void sort(SortBy);
+    void calculateAverage();
     void fcfs();
     void sjf();
     void rr();
+    void ClearAll();
+
 
 public:
     Scheduler(FileUtil*);
-    void setIdleQueue(std::vector<Process>);
     std::vector<Process> getProcesslist();
-    void addProcess(Process);
+    void schedule(scheduleAlgorithm);
     double getWaitAverage();
     double getResponseAverage();
     double getReturnAverage();
     std::array<double, 3> getAverageArray();
-    void schedule(scheduleAlgorithm);
 };
 
 

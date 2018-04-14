@@ -13,6 +13,8 @@ iostream
 -
 cstring
 -
+iomanip
+-
 
 /home/thiagofsr/Hacking/CPUScheduler/FileUtil.h
 fstream
