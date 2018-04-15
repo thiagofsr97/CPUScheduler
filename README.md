@@ -9,7 +9,7 @@ You can read more about scheduling and each one of its algorithm in wikipedia. <
 
 - The compilation of the file is as simple as it follows:
 Go straight to the root of the project using the terminal and type the following: <br />
-'<b>cmake CMakeList.txt && make</b>' . (with no quotation marks) 
+'<b>cmake CMakeLists.txt && make</b>' . (with no quotation marks) 
 
 - Make sure you have cmake pre-installed (Version 3.8 or above). <a href="https://cmake.org/download/">Cmake Download Webpage</a>.
 - In order to run the program properly, you must add a file named "in.txt" at the root of the program folder, containing the arrival and burst time of each process in the following format:
