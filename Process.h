@@ -1,6 +1,12 @@
-//
-// Created by thiagofsr on 09/04/18.
-//
+/**
+ *  @file    Process.h
+ *  @author  Thiago Filipe Soares da Rocha
+ *  @date    04/15/2018
+ *  @version 1.0
+ *
+ *  @brief Header file of a Process.
+ *
+ */
 
 #ifndef CPUSCHEDULER_PROCESS_H
 #define CPUSCHEDULER_PROCESS_H

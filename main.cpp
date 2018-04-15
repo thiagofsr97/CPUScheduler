@@ -1,13 +1,21 @@
+/**
+ *  @file    main.cpp
+ *  @author  Thiago Filipe Soares da Rocha
+ *  @date    04/15/2018
+ *  @version 1.0
+ *
+ *  @brief Main
+ *
+ */
+
+
 #include <iostream>
 #include "FileUtil.h"
 #include "Scheduler.h"
-#define BadArgs() std::cout << "Wrong or missing arguments." << std::endl;exit(1);
 
 int main(int argc,char**argv) {
     std::cout << "-----------------------------Running Scheduling Algorithms-----------------------------\n\n";
     FileUtil fileUtils("in.txt","out.txt");
-    std::vector<Process> processList;
-
     Scheduler scheduler(&fileUtils);
     scheduler.schedule(FCFS);
     fileUtils.appendToLog(FCFS,scheduler.getReturnAverage(),scheduler.getResponseAverage(),scheduler.getWaitAverage());

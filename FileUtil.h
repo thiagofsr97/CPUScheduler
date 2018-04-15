@@ -1,6 +1,12 @@
-//
-// Created by thiagofsr on 09/04/18.
-//
+/**
+ *  @file    FileUtil.h
+ *  @author  Thiago Filipe Soares da Rocha
+ *  @date    04/15/2018
+ *  @version 1.0
+ *
+ *  @brief Header file of a File Utilitary.
+ *
+ */
 
 #ifndef CPUSCHEDULER_FILEUTIL_H
 #define CPUSCHEDULER_FILEUTIL_H

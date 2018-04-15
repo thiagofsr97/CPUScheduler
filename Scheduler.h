@@ -1,6 +1,13 @@
-//
-// Created by thiagofsr on 09/04/18.
-//
+/**
+ *  @file    Scheduler.h
+ *  @author  Thiago Filipe Soares da Rocha
+ *  @date    04/15/2018
+ *  @version 1.0
+ *
+ *  @brief Header file of a Scheduler.
+ *
+ */
+
 
 #ifndef CPUSCHEDULER_SCHEDULER_H
 #define CPUSCHEDULER_SCHEDULER_H
