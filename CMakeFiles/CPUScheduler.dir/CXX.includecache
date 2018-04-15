@@ -33,10 +33,6 @@ Process.h
 /home/thiagofsr/Hacking/CPUScheduler/Process.h
 
 /home/thiagofsr/Hacking/CPUScheduler/Scheduler.cpp
-algorithm
--
-iostream
--
 Scheduler.h
 /home/thiagofsr/Hacking/CPUScheduler/Scheduler.h
 
@@ -47,10 +43,12 @@ Process.h
 /home/thiagofsr/Hacking/CPUScheduler/Process.h
 FileUtil.h
 /home/thiagofsr/Hacking/CPUScheduler/FileUtil.h
-array
--
 Utils.h
 /home/thiagofsr/Hacking/CPUScheduler/Utils.h
+algorithm
+-
+iostream
+-
 
 /home/thiagofsr/Hacking/CPUScheduler/Utils.h
 
