@@ -94,6 +94,6 @@ void FileUtil::appendToLog(scheduleAlgorithm algorithm, double returnAverage,dou
             break;
 
     }
-    outputFile << algorithmName << " " <<std::setprecision (4) << returnAverage << " " << std::setprecision (4)<< responseAverage << " " <<std::setprecision (4) <<waitAverage << std::endl;
+    outputFile << algorithmName << " " << std::setprecision(1) << std::fixed << returnAverage << " " << std::setprecision(1) << std::fixed << responseAverage << " " << std::setprecision(2) << std::fixed << waitAverage << std::endl;
 
 }
