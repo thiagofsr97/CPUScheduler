@@ -247,7 +247,7 @@ void Scheduler::fcfs() {
     }
 
     calculateAverage();
-    showExecutedQueue(executedQueue,FCFS);
+    // showExecutedQueue(executedQueue,FCFS);
 
 
 }
@@ -286,7 +286,7 @@ void Scheduler::sjf() {
         currentTime++;
     }
     calculateAverage();
-    showExecutedQueue(executedQueue,SJF);
+    // showExecutedQueue(executedQueue,SJF);
 
 }
 
@@ -340,7 +340,7 @@ void Scheduler::rr() {
     }
 
     calculateAverage();
-    showExecutedQueue(executedQueue,RR);
+    // showExecutedQueue(executedQueue,RR);
 
 
 

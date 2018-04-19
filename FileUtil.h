@@ -20,10 +20,9 @@
 class FileUtil {
 private:
     std::fstream inputFile;
-    std::fstream outputFile;
     std::vector<Process> processList;
 public:
-    FileUtil(std::string inputPath, std::string outputPath);
+    FileUtil(std::string inputPath);
     ~FileUtil();
     std::vector<Process> getProcess();
     void appendToLog(scheduleAlgorithm,double,double,double);
